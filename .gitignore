@@ -1,0 +1,17 @@
+node_modules/
+dist/
+out/
+coverage/
+playwright-report/
+test-results/
+*.log
+.env
+.env.*
+!.env.example
+# Local planning/prototypes; excluded from the public snapshot.
+.scratch/
+
+# Imported personal agent skills; keep the project-specific verification tooling.
+.agents/skills/*
+!.agents/skills/verify-md0/
+skills-lock.json

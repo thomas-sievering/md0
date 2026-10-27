@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>md0</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="titlebar" aria-hidden="true"></div>
+  <button id="menu-button" aria-label="Menü" aria-expanded="false" aria-controls="menu" title="Menü">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M5 8h14M5 16h14"/></svg>
+  </button>
+  <nav id="menu" aria-label="Dokumentaktionen" hidden>
+    <button id="new">Neues Dokument <kbd>Strg N</kbd></button>
+    <button id="open">Datei öffnen <kbd>Strg O</kbd></button>
+    <button id="save" disabled>Speichern <kbd>Strg S</kbd></button>
+    <button id="restore" disabled>Lokale Sicherung wiederherstellen</button>
+    <button id="search">Im Dokument suchen <kbd>Strg F</kbd></button>
+    <button id="chapters" aria-controls="chapter-index">Kapitelindex</button>
+    <button id="zen">Zen-Modus <kbd>F11</kbd></button>
+    <small id="link-help">Links öffnen: Strg + Klick (nur HTTP/HTTPS).</small>
+    <section aria-label="Zuletzt verwendete Dateien">
+      <small>Zuletzt verwendet</small>
+      <div id="recent-files"></div>
+    </section>
+  </nav>
+  <main id="document">
+    <header><span id="file-label">Unbenannter Entwurf</span><span id="status" role="status" aria-live="polite"></span></header>
+    <p id="error" role="alert" hidden></p>
+    <div id="conflict" hidden aria-label="Konfliktaktionen">
+      <button id="load-disk">Dateiversion laden</button>
+      <button id="save-copy">Meine Version als Kopie speichern</button>
+      <small>Vor dem Laden wird dein lokaler Stand gesichert. Wiederherstellung im Menü.</small>
+    </div>
+    <p id="notice" aria-live="polite" hidden></p>
+    <p id="link-message" aria-live="polite" hidden></p>
+    <div id="editor" hidden></div>
+  </main>
+  <script src="editor.js"></script>
+</body>
+</html>

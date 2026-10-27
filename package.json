@@ -1,0 +1,46 @@
+{
+  "name": "md0",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "author": "Thomas Sievering <thomas.sievering@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomas-sievering/md0.git"
+  },
+  "homepage": "https://github.com/thomas-sievering/md0",
+  "bugs": {
+    "url": "https://github.com/thomas-sievering/md0/issues"
+  },
+  "type": "module",
+  "description": "md0 — a quiet local Markdown source editor",
+  "main": "out/main.cjs",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "screenshots": "npm run build && node scripts/capture-screenshots.mjs",
+    "dist:win": "node scripts/make-icon.mjs && npm run build && electron-builder --win --x64",
+    "start": "npm run build && electron .",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest run",
+    "test:e2e": "npm run build && playwright test",
+    "test": "npm run test:unit && npm run test:e2e"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.10.0",
+    "@codemirror/lang-markdown": "^6.5.0",
+    "@codemirror/language": "^6.12.0",
+    "@codemirror/search": "^6.7.2",
+    "@codemirror/state": "^6.5.0",
+    "@codemirror/view": "^6.38.0",
+    "@lezer/highlight": "^1.2.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.0.0",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.5"
+  }
+}
